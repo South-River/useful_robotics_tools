@@ -1,0 +1,10 @@
+<launch>
+    <arg name="id" default="1"/>
+    <arg name="odom_topic"/>
+
+    <node pkg="frame_add" name="frame_add_$(arg id)" type="frame_add" output="screen">
+        <param name="id"                       value="$(arg id)"/>
+        <remap from="/odom"                    to="$(arg odom_topic)"/>
+        <remap from="/pose"                    to="NOTUSED"/>
+    </node>
+</launch>
